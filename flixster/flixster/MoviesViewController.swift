@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import MBProgressHUD
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
 
+    @IBOutlet weak var tableView: UITableView!
     var movies = [[String:Any]]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
+        tableView.delegate = self
         // Do any additional setup after loading the view.
         print("Hello")
         
@@ -31,6 +36,8 @@ class MoviesViewController: UIViewController {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 self.movies = dataDictionary["results"] as! [[String:Any]]
                 
+                
+                self.tableView.reloadData()
                 print(dataDictionary)
                 // TODO: Get the array of movies
                 // TODO: Store the movies in a property to use elsewhere
@@ -41,7 +48,23 @@ class MoviesViewController: UIViewController {
         task.resume()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        let movie = movies[indexPath.row]
+        let title = movie["title"] as! String
+        print(title)
+//        cell.textLabel?.text = "row: \(indexPath.row)"
+        cell.textLabel?.text = "\(title)"
 
+//        self.tableView.reloadData()
+        return cell
+    }
     /*
     // MARK: - Navigation
 
@@ -51,5 +74,7 @@ class MoviesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }
