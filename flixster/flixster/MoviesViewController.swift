@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -54,15 +55,21 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
+//        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell" ) as! MovieCell //If another cell is offscreen, gives recycled cell. Else give a new cell
+
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
-        print(title)
-//        cell.textLabel?.text = "row: \(indexPath.row)"
-        cell.textLabel?.text = "\(title)"
-
-//        self.tableView.reloadData()
+        let synopsis = movie["overview"] as! String
+        cell.titleLabel.text = title
+        cell.synopsisLabel.text = synopsis
+        
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie["poster_path"] as! String
+        let posterUrl = URL(string: baseUrl + posterPath) //use URL to force proper formatting of URL instead of using arbitrary string
+        
+        cell.posterView.af_setImage(withURL: posterUrl!) //do this instead of first option of ??
+        
         return cell
     }
     /*
