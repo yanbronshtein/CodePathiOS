@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {

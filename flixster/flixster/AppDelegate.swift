@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
