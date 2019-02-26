@@ -55,6 +55,7 @@
                                             <outlet property="posterView" destination="zef-Gk-Hv8" id="qJ1-Di-7ic"/>
                                             <outlet property="synopsisLabel" destination="B8i-N3-HVI" id="CbI-7c-SfB"/>
                                             <outlet property="titleLabel" destination="sl9-UV-IuM" id="bie-AB-lVx"/>
+                                            <segue destination="fgF-t1-2tJ" kind="show" id="Uu6-mP-r9I"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -71,6 +72,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="qGk-wT-u1g">
+            <objects>
+                <viewController id="fgF-t1-2tJ" customClass="MovieDetailsViewController" customModule="flixster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e69-0o-bWM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lbC-4c-WoS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yLD-lg-6op" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1874" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N8p-Lr-0u3">
