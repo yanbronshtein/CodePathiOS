@@ -7,6 +7,8 @@ target 'flixster' do
 
   # Pods for flixster
   pod "AlamofireImage"
+  pod "Alamofire"
+
   target 'flixsterTests' do
     inherit! :search_paths
     # Pods for testing
